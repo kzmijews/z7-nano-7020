@@ -1,0 +1,115 @@
+<!-- file was created based on https://fpga-docs.microphase.cn/projects/documentation-of-microphase-fpga-board/en/latest/DEV_BOARD/Z7-NANO/Z7-NANO_Reference_Manual.html-->
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<part_info part_name="xc7z020clg400-2">
+  <pins>
+    <!-- Pinout for Zynq-7000 SoC on the Z7-Nano board -->
+    <!--     The Zynq-7000 SoC is a versatile device that combines a dual-core ARM Cortex-A9 processor with Xilinx 7-series FPGA fabric -->
+    <!--     This pinout describes the connections for various peripherals and interfaces on the Z7-Nano board -->
+    <!--     The iostandard attribute specifies the electrical standard for each pin, such as LVCMOS33 or TMDS_33 -->
+    <!--     The loc attribute specifies the physical location of the pin on the FPGA package -->
+    <!--     The index attribute indicates the order of the pins, which can be useful for referencing them in design files -->
+    <!--     The pin names are descriptive and indicate the function of each pin, such as PL_CLK_50M for the 50 MHz clock pin or TMDS_data_p_0 for the first TMDS data channel -->
+    <!--     The pins are grouped by their function, such as clock pins, HDMI pins, and GPIO pins -->
+    <!--     The pinout is designed to facilitate the connection of various peripherals and interfaces, including HDMI, GPIO, and clock signals -->
+    <!--     The Zynq-7000 SoC supports a wide range of applications, including video processing, communication, and control systems -->
+
+    <!-- CLOCK PIN -->
+    <!--     PL_CLK_50M: This pin provides a 50 MHz clock signal to the programmable logic (PL) of the Zynq-7000 SoC -->
+    <!--     The iostandard "LVCMOS33" indicates that this pin operates at 3.3V logic levels -->
+    <!--     The loc attribute specifies the physical location of the pin on the FPGA package, which is N18 in this case -->
+    <!--     The index attribute indicates the order of the pin, which is 4 in this case -->
+    <!--     This clock pin is essential for synchronizing the operation of the programmable logic and other components on the board -->
+    <pin index="4" name="PL_CLK_50M" iostandard="LVCMOS33" loc="N18" />
+  
+    <!-- HDMI PINS -->
+    <!--     TMDS stands for Transition Minimized Differential Signaling. It is the core signaling technology used in HDMI, DVI, and DisplayPort -->
+    <!--     TMDS Clock: Synchronizes the data stream -->
+    <pin index="5" name="HDMI1_CLK_P" iostandard="TMDS_33" loc="U18" />
+    <pin index="6" name="HDMI1_CLK_N" iostandard="TMDS_33" loc="U19" />
+    <!--     TMDS Data: Transmits video and audio data -->
+    <!--     Each TMDS data channel consists of a positive and negative signal -->
+    <!--     The data channels are typically labeled as TMDS_data_p_0, TMDS_data_p_1, TMDS_data_p_2 for positive signals -->
+    <!--     and TMDS_data_n_0, TMDS_data_n_1, TMDS_data_n_2 for negative signals -->
+    <!--     The numbers correspond to the different data channels, with 0, 1, and 2 representing different data streams -->
+    <!--     The iostandard "TMDS_33" indicates that these pins are configured for TMDS signaling at 3.3V logic levels -->
+    <pin index="7" name="HDMI1_D0_P" iostandard="TMDS_33" loc="V20" />
+    <pin index="8" name="HDMI1_D1_P" iostandard="TMDS_33" loc="T20" />
+    <pin index="9" name="HDMI1_D2_P" iostandard="TMDS_33" loc="N20" />
+    <pin index="10" name="HDMI1_D0_N" iostandard="TMDS_33" loc="W20" />
+    <pin index="11" name="HDMI1_D1_N" iostandard="TMDS_33" loc="U20" />
+    <pin index="12" name="HDMI1_D2_N" iostandard="TMDS_33" loc="P20" />
+    <!--     HDMI Hot Plug Detect (HPD): Indicates whether a display is connected -->
+    <!--     The HPD pin is used to detect if an HDMI display is connected to the board -->
+    <!--     It is typically pulled high when a display is connected and low when no display is detected -->
+    <!--     The iostandard "LVCMOS33" indicates that this pin operates at 3.3V logic levels -->
+    <pin index="13" name="HDMI1_HPDN" iostandard="LVCMOS33" loc="P19" />
+    <!--     HDMI I2C: Used for communication with HDMI devices -->
+    <!--     The HDMI I2C pins are used for communication with HDMI devices, such as HDMI transmitters or receivers -->
+    <!--     These pins are typically used for configuration and control of HDMI devices -->
+    <!--     The I2C standard allows for communication between the FPGA and HDMI devices over a two-wire interface -->
+    <!--     The iostandard "LVCMOS33" indicates that these pins operate at 3.3V logic levels -->
+    <!--     The SCL (Serial Clock) pin is used to provide the clock signal for I2C communication -->
+    <!--     The SDA (Serial Data) pin is used to transmit and receive data -->
+    <pin index="14" name="HDMI1_I2C_SCL" iostandard="LVCMOS33" loc="R19" />
+    <pin index="15" name="HDMI1_I2C_SDA" iostandard="LVCMOS33" loc="T19" />
+
+    <!-- ETHERNET PINS-->
+    <!--     The Ethernet interface on the Z7-Nano board supports two Ethernet ports, ETH1 and ETH2 -->
+    <!--     Each Ethernet port has a set of pins for receiving and transmitting data, as well as management and control signals -->
+    <!--     The pins are grouped by their function, such as receive data (RXD), transmit data (TXD), management data clock (MDC), and management data input/output (MDIO) -->
+    <!--     The iostandard "LVCMOS33" indicates that these pins operate at 3.3V logic levels -->
+    <!--     The loc attribute specifies the physical location of each pin on the FPGA package -->
+    <!--     The index attribute indicates the order of the pins, which can be useful for referencing them in design files -->
+    <!--     ** ETH2 PINS ** -->
+    <!--     Ethernet Receive Data (RXD): Used for receiving data over the Ethernet interface -->
+    <!--     The RXD pins are used to receive data over the Ethernet interface -->
+    <!--     Each RXD pin corresponds to a specific data channel, with RXD3 being the highest channel and RXD0 being the lowest -->
+    <!--     The iostandard "LVCMOS33" indicates that these pins operate at 3.3V logic levels -->
+    <!--     The RXCK pin is used to provide the clock signal for the received data -->
+    <!--     The RXCTL pin is used to control the reception of data -->
+    <!--     The nRST pin is used to reset the Ethernet interface -->
+    <!--     The nRST pin is typically pulled low to reset the Ethernet interface and pulled high to enable normal operation -->
+    <!--     The iostandard "LVCMOS33" indicates that this pin operates at 3.3V logic levels -->
+    <pin index="16" name="ETH2_RXD3" iostandard="LVCMOS33" loc="M17" />
+    <pin index="17" name="ETH2_RXD2" iostandard="LVCMOS33" loc="M18" />
+    <pin index="18" name="ETH2_RXD1" iostandard="LVCMOS33" loc="K14" />
+    <pin index="19" name="ETH2_RXD0" iostandard="LVCMOS33" loc="J14" />
+    <pin index="20" name="ETH2_RXCK" iostandard="LVCMOS33" loc="K17" />
+    <pin index="21" name="ETH2_RXCTL" iostandard="LVCMOS33" loc="K18" />
+    <!--     Ethernet Transmit Data (TXD): Used for transmitting data over the Ethernet interface -->
+    <!--     The TXD pins are used to transmit data over the Ethernet interface -->
+    <!--     Each TXD pin corresponds to a specific data channel, with TXD3 being the highest channel and TXD0 being the lowest -->
+    <!--     The iostandard "LVCMOS33" indicates that these pins operate at 3.3V logic levels -->
+    <!--     The TXCK pin is used to provide the clock signal for the transmit data -->
+    <!--     The TXCTL pin is used to control the transmission of data -->
+    <!--     The nRST pin is used to reset the Ethernet interface -->
+    <!--     The nRST pin is typically pulled low to reset the Ethernet interface and pulled high to enable normal operation -->
+    <!--     The iostandard "LVCMOS33" indicates that this pin operates at 3.3V logic levels -->
+    <pin index="22" name="ETH2_TXD3" iostandard="LVCMOS33" loc="N15" />
+    <pin index="23" name="ETH2_TXD2" iostandard="LVCMOS33" loc="M15" />
+    <pin index="24" name="ETH2_TXD1" iostandard="LVCMOS33" loc="L15" />
+    <pin index="25" name="ETH2_TXD0" iostandard="LVCMOS33" loc="M14" />
+    <pin index="26" name="ETH2_TXCK" iostandard="LVCMOS33" loc="L14" />
+    <pin index="27" name="ETH2_TXCTL" iostandard="LVCMOS33" loc="N16" />
+    <pin index="28" name="ETH2_nRST" iostandard="LVCMOS33" loc="L20" /> <!-- GPIO2_17N: Reset pin for Ethernet interface -->
+    <!--     Ethernet Management Data Clock (MDC) and Management Data Input/Output (MDIO) -->
+    <!--     These pins are used for management and configuration of the Ethernet PHY -->
+    <!--     The MDC pin provides the clock signal for the management interface -->
+    <!--     The MDIO pin is used for data transfer in the management interface -->
+    <!--     The iostandard "LVCMOS33" indicates that these pins operate at 3.3V logic levels -->
+    <!--     The MDC pin is typically used to synchronize data transfers between the FPGA and the Ethernet PHY -->
+    <!--     The MDIO pin is used to read and write configuration registers in the Ethernet PHY -->
+    <!--     These pins are essential for configuring the Ethernet interface and managing its operation -->
+    <pin index="29" name="ETH2_MDC" iostandard="LVCMOS33" loc="G14" />
+    <pin index="30" name="ETH2_MDIO" iostandard="LVCMOS33" loc="J15" />
+    <!--     ** ETH1 PINS ** -->
+    <!--     Ethernet Receive Data (RXD): Used for receiving data over the Ethernet interface -->
+    <!--     The RXD pins are used to receive data over the Ethernet interface -->
+    <!--     Each RXD pin corresponds to a specific data channel, with RXD3 being the highest channel and RXD0 being the lowest -->
+    <!--     The iostandard "LVCMOS33" indicates that these pins operate at 3.3V logic levels -->
+    <!--     The RXCK pin is used to provide the clock signal for the received data -->
+    <!--     The RXCTL pin is used to control the reception of data -->
+    <!--     The nRST pin is used to reset the Ethernet interface -->
+    <!--     The nRST pin is typically pulled low to reset the Ethernet interface and pulled high to enable normal operation -->
+    <!--     The iostandard "LVCMOS33" indicates that this pin operates at 3.3V logic levels --> 
+    <pin index="31" name="ETH1_RXD3" iostandard="LVCMOS33" loc="A15" />
