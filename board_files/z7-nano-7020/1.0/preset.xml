@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<!-- Zynq 7000 processing system configuration -->
 <ip_presets schema="1.0">
     <ip_preset preset_proc_name="ps7_preset">
         <ip vendor="xilinx.com" library="ip" name="processing_system7" version="*">
@@ -216,19 +215,19 @@
             </user_parameters>
         </ip>
     </ip_preset>
-    <ip_preset preset_proc_name="BTN_2BIT_preset">
+    <ip_preset preset_proc_name="BTN_1BIT_preset">
         <ip vendor="xilinx.com" library="ip" name="axi_gpio" version="*">
             <user_parameters>
-                <user_parameter name="C_GPIO_WIDTH" value="2"/>
-                <user_parameter name="C_ALL_INPUTS" value="1"/>
-                <user_parameter name="C_ALL_OUTPUTS" value="0"/>
+                <user_parameter name="CONFIG.C_GPIO_WIDTH" value="1"/>
+                <user_parameter name="CONFIG.C_ALL_INPUTS" value="1"/>
+                <user_parameter name="CONFIG.C_ALL_OUTPUTS" value="0"/>
             </user_parameters>
         </ip>
     </ip_preset>
     <ip_preset preset_proc_name="GPIO1_preset">
         <ip vendor="xilinx.com" library="ip" name="axi_gpio" version="*">
             <user_parameters>
-                <user_parameter name="CONFIG.C_GPIO_WIDTH" value="17"/>
+                <user_parameter name="CONFIG.C_GPIO_WIDTH" value="16"/>
                 <user_parameter name="CONFIG.C_ALL_INPUTS" value="0"/>
                 <user_parameter name="CONFIG.C_ALL_OUTPUTS" value="0"/>
                 <user_parameter name="CONFIG.C_ALL_DUAL" value="1"/>
@@ -238,7 +237,7 @@
     <ip_preset preset_proc_name="GPIO2_preset">
         <ip vendor="xilinx.com" library="ip" name="axi_gpio" version="*">
             <user_parameters>
-                <user_parameter name="CONFIG.C_GPIO_WIDTH" value="17"/>
+                <user_parameter name="CONFIG.C_GPIO_WIDTH" value="16"/>
                 <user_parameter name="CONFIG.C_ALL_INPUTS" value="0"/>
                 <user_parameter name="CONFIG.C_ALL_OUTPUTS" value="0"/>
                 <user_parameter name="CONFIG.C_ALL_DUAL" value="1"/>

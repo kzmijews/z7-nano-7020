@@ -1,26 +1,20 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-
-<board schema_version="2.2" vendor="microphase.cn" name="z7_nano_z7020" display_name="MicroPhase Z7 Nano (z7020)" url="http://www.microphase.cn" preset_file="preset.xml">
+<board schema_version="2.0" vendor="microphase" name="z7-nano-7020" display_name="z7-nano-7020" url="http://www.microphase.cn" preset_file="preset.xml">
     <images>
-        <image name="z7-nano_board.png" display_name="MicroPhase Z7 Nano (Z7020)" sub_type="board">
+        <image name="z7-nano_board.png" display_name="z7-nano-7020" sub_type="board">
             <description>Microphase Z7-Nano Development board (Z7020 Version)</description>
         </image>
     </images>
     <compatible_board_revisions>
-        <revision id="0">Rev 1</revision>
+        <revision id="0">1.0</revision>
     </compatible_board_revisions>
     <file_version>1.0</file_version>
     <description>
-        Z7 Nano is a development board based on Xilinx Zynq-7000 SoCs (XC7Z010 or XC7Z020) with up to 4Gb of DDR3/L SDRAM, 128MB of SPI flash memory,
-        Gigabit Ethernet PHY transceiver, a USB PHY transceiver and a simple way to provide power and speed grade -2 Zynq 7020. Z7 Nano offers dual
-        gigabit Ethernet interfaces, (instead of single 100Mbps RTL8201F provided for Z7 Lite) enabling one connected to PS
-        (Processing Systems - ARM Cortex-A9) and the other to PL (Programmable Logic - Artix-7 FPGA). Zynq lets the PS and PL communicate over AXI buses
-        (high-speed memory-mapped interface). This makes it suitable for applications like bridge routers, network overlays, or involving the FPGA
-        directly in networking tasks.
+        Z7 Nano is a development board based on Xilinx Zynq-7000 SoCs (XC7Z010 or XC7Z020).
     </description>
     <components>
         <!-- FPGA part -->
-        <component name="part0" display_name="Z7-Nano" type="fpga" part_name="xc7z020clg400-2" pin_map_file="part0_pins.xml" vendor="xilinx" spec_url="www.xilinx.com">
+        <component name="part0" display_name="z7-nano-7020" type="fpga" part_name="xc7z020clg400-2" pin_map_file="part0_pins.xml" vendor="xilinx" spec_url="www.xilinx.com">
             <!-- Associated FPGA interfaces and IP cores -->
             <interfaces>
                 <!-- Zynq 7000 processing system -->
@@ -33,78 +27,24 @@
 
                 <!-- HDMI TX via PL -->
                 <!-- HDMI TX interface for video output, connected to the programmable logic (PL) -->
-                <interface mode="master" name="hdmi_tx" type="xilinx.com:interface:video_rtl:1.0" of_component="hdmi" preset_proc="HDMI_TX_preset">
+                <interface mode="master" name="hdmi_tx" type="xilinx.com:interface:svideo_rtl:1.0" of_component="hdmi">
                     <preferred_ips>
                         <preferred_ip vendor="xilinx.com" library="ip" name="axi_hdmi_tx" order="0"/>
                     </preferred_ips>
-                    <port_maps>
-                        <port_map logical_port="HDMI_TX" physical_port="hdmi_tx" dir="out" left="1" right="0">
-                            <pin_maps>
-                                <pin_map port_index="0" component_pin="HDMI_D0_P"/>
-                                <pin_map port_index="1" component_pin="HDMI_D1_P"/>
-                                <pin_map port_index="2" component_pin="HDMI_D2_P"/>
-                                <pin_map port_index="4" component_pin="HDMI1_CLK_P"/>
-                            </pin_maps>
-                        </port_map>
-                    </port_maps>
                 </interface>
 
                 <!-- Ethernet 1 via PS -->
-                <interface mode="master" name="eth_ps" type="xilinx.com:interface:ethernet_rtl:1.0" of_component="ethernet_ps" preset_proc="ETH_PS_preset">
+                <interface mode="master" name="eth_ps" type="xilinx.com:interface:ethernet_rtl:1.0" of_component="ethernet_ps">
                     <preferred_ips>
                         <preferred_ip vendor="xilinx.com" library="ip" name="axi_ethernet" order="0"/>
                     </preferred_ips>
-                    <port_maps>
-                        <port_map logical_port="TRI_O" physical_port="eth_ps_tri_o" dir="out" left="1" right="0">
-                            <pin_maps>
-                                <pin_map port_index="0" component_pin="ETH1_TXD3"/>
-                                <pin_map port_index="1" component_pin="ETH1_TXD2"/>
-                                <pin_map port_index="2" component_pin="ETH1_TXD1"/>
-                                <pin_map port_index="3" component_pin="ETH1_TXD0"/>
-                                <pin_map port_index="4" component_pin="ETH1_TXCK"/>
-                                <pin_map port_index="5" component_pin="ETH1_TXCTL"/>
-                            </pin_maps>
-                        </port_map>
-                        <port_map logical_port="TRI_I" physical_port="eth_ps_tri_i" dir="in" left="1" right="0">
-                            <pin_maps>
-                                <pin_map port_index="0" component_pin="ETH1_RXD3"/>
-                                <pin_map port_index="1" component_pin="ETH1_RXD2"/>
-                                <pin_map port_index="2" component_pin="ETH1_RXD1"/>
-                                <pin_map port_index="3" component_pin="ETH1_RXD0"/>
-                                <pin_map port_index="4" component_pin="ETH1_RXCK"/>
-                                <pin_map port_index="5" component_pin="ETH1_RXCTL"/>
-                            </pin_maps>
-                        </port_map>
-                    </port_maps>
                 </interface>
 
                 <!-- Ethernet 2 via PL -->
-                <interface mode="master" name="eth_pl" type="xilinx.com:interface:ethernet_rtl:1.0" of_component="ethernet_pl" preset_proc="ETH_PL_preset">
+                <interface mode="master" name="eth_pl" type="xilinx.com:interface:ethernet_rtl:1.0" of_component="ethernet_pl">
                     <preferred_ips>
                         <preferred_ip vendor="xilinx.com" library="ip" name="axi_ethernet" order="0"/>
                     </preferred_ips>
-                    <port_maps>
-                        <port_map logical_port="TRI_O" physical_port="eth_pl_tri_o" dir="out" left="1" right="0">
-                            <pin_maps>
-                                <pin_map port_index="0" component_pin="ETH2_TXD3"/>
-                                <pin_map port_index="1" component_pin="ETH2_TXD2"/>
-                                <pin_map port_index="2" component_pin="ETH2_TXD1"/>
-                                <pin_map port_index="3" component_pin="ETH2_TXD0"/>
-                                <pin_map port_index="4" component_pin="ETH2_TXCK"/>
-                                <pin_map port_index="5" component_pin="ETH2_TXCTL"/>
-                            </pin_maps>
-                        </port_map>
-                        <port_map logical_port="TRI_I" physical_port="eth_pl_tri_i" dir="in" left="1" right="0">
-                            <pin_maps>
-                                <pin_map port_index="0" component_pin="ETH2_RXD3"/>
-                                <pin_map port_index="1" component_pin="ETH2_RXD2"/>
-                                <pin_map port_index="2" component_pin="ETH2_RXD1"/>
-                                <pin_map port_index="3" component_pin="ETH2_RXD0"/>
-                                <pin_map port_index="4" component_pin="ETH2_RXCK"/>
-                                <pin_map port_index="5" component_pin="ETH2_RXCTL"/>
-                            </pin_maps>
-                        </port_map>
-                    </port_maps>
                 </interface>
 
                 <!-- LEDs -->
@@ -115,25 +55,18 @@
                     <port_maps>
                         <port_map logical_port="TRI_O" physical_port="leds_2bits_tri_o" dir="out" left="1" right="0">
                             <pin_maps>
-                                <pin_map port_index="0" component_pin="PS_LED1"/>
-                                <pin_map port_index="1" component_pin="PL_LED1"/>
+                                <pin_map port_index="0" component_pin="PL_LED1"/>
+                                <pin_map port_index="1" component_pin="PS_LED1"/>
                             </pin_maps>
                         </port_map>
                     </port_maps>
                 </interface>
 
                 <!-- Buttons -->
-                <interface mode="master" name="btns_2bits" type="xilinx.com:interface:gpio_rtl:1.0" of_component="btns_2bits" preset_proc="BTN_2BIT_preset">
+                <interface mode="master" name="btns_1bit" type="xilinx.com:interface:gpio_rtl:1.0" of_component="btns_1bit" preset_proc="BTN_1BIT_preset">
                     <preferred_ips>
                         <preferred_ip vendor="xilinx.com" library="ip" name="axi_gpio" order="0"/>
                     </preferred_ips>
-                    <port_maps>
-                        <port_map logical_port="TRI_I" physical_port="btns_2bits_tri_i" dir="in" left="1" right="0">
-                            <pin_maps>
-                                <pin_map port_index="0" component_pin="PL_KEY1"/>
-                            </pin_maps>
-                        </port_map>
-                    </port_maps>
                 </interface>
 
                 <!-- GPIO_1P -->
@@ -142,7 +75,7 @@
                         <preferred_ip vendor="xilinx.com" library="ip" name="axi_gpio" order="0"/>
                     </preferred_ips>
                     <port_maps>
-                        <port_map logical_port="TRI_O" physical_port="GPIO_1P_tri_o" dir="inout" left="17" right="0">
+                        <port_map logical_port="TRI_O" physical_port="GPIO_1P_tri_o" dir="inout" left="16" right="0">
                             <pin_maps>
                                 <pin_map port_index="0" component_pin="GPIO1_0P"/>
                                 <pin_map port_index="1" component_pin="GPIO1_1P"/>
@@ -161,10 +94,9 @@
                                 <pin_map port_index="14" component_pin="GPIO1_14P"/>
                                 <pin_map port_index="15" component_pin="GPIO1_15P"/>
                                 <pin_map port_index="16" component_pin="GPIO1_16P"/>
-                                <pin_map port_index="17" component_pin="GPIO1_17P"/>
                             </pin_maps>
                         </port_map>
-                        <port_map logical_port="TRI_I" physical_port="GPIO_1P_tri_i" dir="inout" left="17" right="0">
+                        <port_map logical_port="TRI_I" physical_port="GPIO_1P_tri_i" dir="inout" left="16" right="0">
                             <pin_maps>
                                 <pin_map port_index="0" component_pin="GPIO1_0N"/>
                                 <pin_map port_index="1" component_pin="GPIO1_1N"/>
@@ -183,7 +115,6 @@
                                 <pin_map port_index="14" component_pin="GPIO1_14N"/>
                                 <pin_map port_index="15" component_pin="GPIO1_15N"/>
                                 <pin_map port_index="16" component_pin="GPIO1_16N"/>
-                                <pin_map port_index="17" component_pin="GPIO1_17N"/>
                             </pin_maps>
                         </port_map>
                     </port_maps>
@@ -195,7 +126,7 @@
                         <preferred_ip vendor="xilinx.com" library="ip" name="axi_gpio" order="0"/>
                     </preferred_ips>
                     <port_maps>
-                        <port_map logical_port="TRI_O" physical_port="GPIO_2P_tri_o" dir="inout" left="17" right="0">
+                        <port_map logical_port="TRI_O" physical_port="GPIO_2P_tri_o" dir="inout" left="16" right="0">
                             <pin_maps>
                                 <pin_map port_index="0" component_pin="GPIO2_0P"/>
                                 <pin_map port_index="1" component_pin="GPIO2_1P"/>
@@ -214,10 +145,9 @@
                                 <pin_map port_index="14" component_pin="GPIO2_14P"/>
                                 <pin_map port_index="15" component_pin="GPIO2_15P"/>
                                 <pin_map port_index="16" component_pin="GPIO2_16P"/>
-                                <pin_map port_index="17" component_pin="GPIO2_17P"/>
                             </pin_maps>
                         </port_map>
-                        <port_map logical_port="TRI_I" physical_port="GPIO_2P_tri_i" dir="inout" left="17" right="0">
+                        <port_map logical_port="TRI_I" physical_port="GPIO_2P_tri_i" dir="inout" left="16" right="0">
                             <pin_maps>
                                 <pin_map port_index="0" component_pin="GPIO2_0N"/>
                                 <pin_map port_index="1" component_pin="GPIO2_1N"/>
@@ -236,25 +166,23 @@
                                 <pin_map port_index="14" component_pin="GPIO2_14N"/>
                                 <pin_map port_index="15" component_pin="GPIO2_15N"/>
                                 <pin_map port_index="16" component_pin="GPIO2_16N"/>
-                                <pin_map port_index="17" component_pin="GPIO2_17N"/>
                             </pin_maps>
                         </port_map>
                     </port_maps>
                 </interface>
             </interfaces>
         </component>
-
         <!-- Zynq 7000 processing system -->
         <component name="ps7_fixedio" display_name="PS7 fixed IO" type="chip" sub_type="fixed_io" major_group=""/>
-        <!-- User LEDs: Red and Green (LED6) -->
+        <!-- User LEDs -->
         <component name="leds_2bits" display_name="LEDs" type="chip" sub_type="led" major_group="General Purpose Input or Output">
             <description>LEDs, Active Low</description>
         </component>
         <!-- User Buttons: -->
-        <component name="btns_2bits" display_name="BTNs" type="chip" sub_type="push_button" major_group="General Purpose Input or Output">
+        <component name="btns_1bit" display_name="BTNs" type="chip" sub_type="push_button" major_group="General Purpose Input or Output">
             <description>Buttons, Active Low</description>
         </component>
-        <!-- HDMI -->
+         <!-- HDMI -->
         <component name="hdmi" display_name="HDMI TX" type="chip" sub_type="lcd" major_group="High-Definition Multimedia Interface">
             <description>HDMI interface, Active High</description>
         </component>
@@ -274,11 +202,12 @@
         <component name="GPIO2" display_name="GPIO2" type="chip" sub_type="pmod" major_group="General Purpose Input or Output">
             <description>General Purpose IO 2 Positive</description>
         </component>
-
     </components>
+
     <jtag_chains>
         <jtag_chain name="chain1">
             <position name="0" component="part0"/>
         </jtag_chain>
     </jtag_chains>
+
 </board>

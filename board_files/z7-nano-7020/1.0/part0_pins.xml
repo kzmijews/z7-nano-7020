@@ -1,4 +1,3 @@
-<!-- file was created based on https://fpga-docs.microphase.cn/projects/documentation-of-microphase-fpga-board/en/latest/DEV_BOARD/Z7-NANO/Z7-NANO_Reference_Manual.html-->
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <part_info part_name="xc7z020clg400-2">
   <pins>
@@ -19,7 +18,7 @@
     <!--     The iostandard "LVCMOS33" indicates that these pins operate at 3.3V logic levels -->
     <!--     The loc attribute specifies the physical location of each pin on the FPGA package -->
     <!--     The index attribute indicates the order of the pins, which can be useful for referencing them in design files -->
-    <pin index="0" name="PL_KEY1" iostandard="LVCMOS33" loc="P14" /> <!-- GPIO1_17P -->
+    <pin index="0" name="btns_1bit_tri_i_0" iostandard="LVCMOS33" loc="P14" />
 
     <!-- LED PINS -->
     <!--     The LED pins are used to drive LEDs on the board -->
@@ -33,8 +32,8 @@
     <!--     The LED pins can be used to create user interfaces, such as status indicators or notifications -->
     <!--     The LED pins can be used to create visual effects, such as blinking or fading -->
     <!--     The LED pins can be used to create custom lighting effects, such as animations or color changes -->
-    <pin index="1" name="PS_LED1" iostandard="LVCMOS33" loc="E6" /> <!-- PS_LED1 -->
-    <pin index="2" name="PL_LED1" iostandard="LVCMOS33" loc="R14" /> <!-- GPIO1_17N -->
+    <pin index="1" name="PS_LED1" iostandard="LVCMOS33" loc="E6" />
+    <pin index="2" name="PL_LED1" iostandard="LVCMOS33" loc="R14" />
 
     <!-- CLOCK PIN -->
     <!--     PL_CLK_50M: This pin provides a 50 MHz clock signal to the programmable logic (PL) of the Zynq-7000 SoC -->
@@ -43,7 +42,7 @@
     <!--     The index attribute indicates the order of the pin, which is 4 in this case -->
     <!--     This clock pin is essential for synchronizing the operation of the programmable logic and other components on the board -->
     <pin index="3" name="PL_CLK_50M" iostandard="LVCMOS33" loc="N18" />
-  
+
     <!-- HDMI PINS -->
     <!--     TMDS stands for Transition Minimized Differential Signaling. It is the core signaling technology used in HDMI, DVI, and DisplayPort -->
     <!--     TMDS Clock: Synchronizes the data stream -->
@@ -114,7 +113,7 @@
     <pin index="24" name="ETH2_TXD0" iostandard="LVCMOS33" loc="M14" />
     <pin index="25" name="ETH2_TXCK" iostandard="LVCMOS33" loc="L14" />
     <pin index="26" name="ETH2_TXCTL" iostandard="LVCMOS33" loc="N16" />
-    <pin index="27" name="ETH2_nRST" iostandard="LVCMOS33" loc="L20" /> <!-- GPIO2_17N: Reset pin for Ethernet interface -->
+    <pin index="27" name="ETH2_nRST" iostandard="LVCMOS33" loc="L20" />
     <!--     Ethernet Management Data Clock (MDC) and Management Data Input/Output (MDIO) -->
     <!--     These pins are used for management and configuration of the Ethernet PHY -->
     <!--     The MDC pin provides the clock signal for the management interface -->
@@ -214,44 +213,40 @@
     <pin index="76" name="GPIO1_15N" iostandard="LVCMOS33" loc="T15" />
     <pin index="77" name="GPIO1_16P" iostandard="LVCMOS33" loc="T11" />
     <pin index="78" name="GPIO1_16N" iostandard="LVCMOS33" loc="T10" />
-    <pin index="79" name="GPIO1_17P" iostandard="LVCMOS33" loc="P14" />
-    <pin index="80" name="GPIO1_17N" iostandard="LVCMOS33" loc="R14" />
     <!--     ** GPI02 PINS ** -->
-    <pin index="81" name="GPIO2_0P" iostandard="LVCMOS33" loc="H15" />
-    <pin index="82" name="GPIO2_0N" iostandard="LVCMOS33" loc="G15" />
-    <pin index="83" name="GPIO2_1P" iostandard="LVCMOS33" loc="F16" />
-    <pin index="84" name="GPIO2_1N" iostandard="LVCMOS33" loc="F17" />
-    <pin index="85" name="GPIO2_2P" iostandard="LVCMOS33" loc="E17" />
-    <pin index="86" name="GPIO2_2N" iostandard="LVCMOS33" loc="D18" />
-    <pin index="87" name="GPIO2_3P" iostandard="LVCMOS33" loc="E18" />
-    <pin index="88" name="GPIO2_3N" iostandard="LVCMOS33" loc="E19" />
-    <pin index="89" name="GPIO2_4P" iostandard="LVCMOS33" loc="G17" />
-    <pin index="90" name="GPIO2_4N" iostandard="LVCMOS33" loc="G18" />
-    <pin index="91" name="GPIO2_5P" iostandard="LVCMOS33" loc="H16" />
-    <pin index="92" name="GPIO2_5N" iostandard="LVCMOS33" loc="H17" />
-    <pin index="93" name="GPIO2_6P" iostandard="LVCMOS33" loc="B19" />
-    <pin index="94" name="GPIO2_6N" iostandard="LVCMOS33" loc="A20" />
-    <pin index="95" name="GPIO2_7P" iostandard="LVCMOS33" loc="C20" />
-    <pin index="96" name="GPIO2_7N" iostandard="LVCMOS33" loc="B20" />
-    <pin index="97" name="GPIO2_8P" iostandard="LVCMOS33" loc="D19" />
-    <pin index="98" name="GPIO2_8N" iostandard="LVCMOS33" loc="D20" />
-    <pin index="99" name="GPIO2_9P" iostandard="LVCMOS33" loc="J18" />
-    <pin index="100" name="GPIO2_9N" iostandard="LVCMOS33" loc="H18" />
-    <pin index="101" name="GPIO2_10P" iostandard="LVCMOS33" loc="F19" />
-    <pin index="102" name="GPIO2_10N" iostandard="LVCMOS33" loc="F20" />
-    <pin index="103" name="GPIO2_11P" iostandard="LVCMOS33" loc="G19" />
-    <pin index="104" name="GPIO2_11N" iostandard="LVCMOS33" loc="G20" />
-    <pin index="105" name="GPIO2_12P" iostandard="LVCMOS33" loc="J20" />
-    <pin index="106" name="GPIO2_12N" iostandard="LVCMOS33" loc="H20" />
-    <pin index="107" name="GPIO2_13P" iostandard="LVCMOS33" loc="K16" />
-    <pin index="108" name="GPIO2_13N" iostandard="LVCMOS33" loc="J16" />
-    <pin index="109" name="GPIO2_14P" iostandard="LVCMOS33" loc="K19" />
-    <pin index="110" name="GPIO2_14N" iostandard="LVCMOS33" loc="J19" />
-    <pin index="111" name="GPIO2_15P" iostandard="LVCMOS33" loc="L16" />
-    <pin index="112" name="GPIO2_15N" iostandard="LVCMOS33" loc="L17" />
-    <pin index="113" name="GPIO2_16P" iostandard="LVCMOS33" loc="M19" />
-    <pin index="114" name="GPIO2_16N" iostandard="LVCMOS33" loc="M20" />
-    <pin index="115" name="GPIO2_17P" iostandard="LVCMOS33" loc="L19" />
-    <pin index="116" name="GPIO2_17N" iostandard="LVCMOS33" loc="L20" />
+    <pin index="79" name="GPIO2_0P" iostandard="LVCMOS33" loc="H15" />
+    <pin index="80" name="GPIO2_0N" iostandard="LVCMOS33" loc="G15" />
+    <pin index="81" name="GPIO2_1P" iostandard="LVCMOS33" loc="F16" />
+    <pin index="82" name="GPIO2_1N" iostandard="LVCMOS33" loc="F17" />
+    <pin index="83" name="GPIO2_2P" iostandard="LVCMOS33" loc="E17" />
+    <pin index="84" name="GPIO2_2N" iostandard="LVCMOS33" loc="D18" />
+    <pin index="85" name="GPIO2_3P" iostandard="LVCMOS33" loc="E18" />
+    <pin index="86" name="GPIO2_3N" iostandard="LVCMOS33" loc="E19" />
+    <pin index="87" name="GPIO2_4P" iostandard="LVCMOS33" loc="G17" />
+    <pin index="88" name="GPIO2_4N" iostandard="LVCMOS33" loc="G18" />
+    <pin index="89" name="GPIO2_5P" iostandard="LVCMOS33" loc="H16" />
+    <pin index="90" name="GPIO2_5N" iostandard="LVCMOS33" loc="H17" />
+    <pin index="91" name="GPIO2_6P" iostandard="LVCMOS33" loc="B19" />
+    <pin index="92" name="GPIO2_6N" iostandard="LVCMOS33" loc="A20" />
+    <pin index="93" name="GPIO2_7P" iostandard="LVCMOS33" loc="C20" />
+    <pin index="94" name="GPIO2_7N" iostandard="LVCMOS33" loc="B20" />
+    <pin index="95" name="GPIO2_8P" iostandard="LVCMOS33" loc="D19" />
+    <pin index="96" name="GPIO2_8N" iostandard="LVCMOS33" loc="D20" />
+    <pin index="97" name="GPIO2_9P" iostandard="LVCMOS33" loc="J18" />
+    <pin index="98" name="GPIO2_9N" iostandard="LVCMOS33" loc="H18" />
+    <pin index="99" name="GPIO2_10P" iostandard="LVCMOS33" loc="F19" />
+    <pin index="100" name="GPIO2_10N" iostandard="LVCMOS33" loc="F20" />
+    <pin index="101" name="GPIO2_11P" iostandard="LVCMOS33" loc="G19" />
+    <pin index="102" name="GPIO2_11N" iostandard="LVCMOS33" loc="G20" />
+    <pin index="103" name="GPIO2_12P" iostandard="LVCMOS33" loc="J20" />
+    <pin index="104" name="GPIO2_12N" iostandard="LVCMOS33" loc="H20" />
+    <pin index="105" name="GPIO2_13P" iostandard="LVCMOS33" loc="K16" />
+    <pin index="106" name="GPIO2_13N" iostandard="LVCMOS33" loc="J16" />
+    <pin index="107" name="GPIO2_14P" iostandard="LVCMOS33" loc="K19" />
+    <pin index="108" name="GPIO2_14N" iostandard="LVCMOS33" loc="J19" />
+    <pin index="109" name="GPIO2_15P" iostandard="LVCMOS33" loc="L16" />
+    <pin index="110" name="GPIO2_15N" iostandard="LVCMOS33" loc="L17" />
+    <pin index="111" name="GPIO2_16P" iostandard="LVCMOS33" loc="M19" />
+    <pin index="112" name="GPIO2_16N" iostandard="LVCMOS33" loc="M20" />
   </pins>
 </part_info>
