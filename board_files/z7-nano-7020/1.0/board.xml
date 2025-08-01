@@ -57,6 +57,25 @@
                     </parameters>
                 </interface>
 
+                <!-- USB UART -->
+                <interface mode="master" name="usb_uart" type="xilinx.com:interface:uart_rtl:1.0" of_component="usb_uart" preset_proc="uart_preset">
+                    <preferred_ips>
+                        <preferred_ip vendor="xilinx.com" library="ip" name="axi_uartlite" order="0"/>
+                    </preferred_ips>
+                    <port_maps>
+                        <port_map logical_port="TxD" physical_port="usb_uart_txd" dir="out">
+                            <pin_maps>
+                                <pin_map port_index="0" component_pin="PS_MIO15_500"/>
+                            </pin_maps>
+                        </port_map>
+                        <port_map logical_port="RxD" physical_port="usb_uart_rxd" dir="in">
+                            <pin_maps>
+                                <pin_map port_index="0" component_pin="PS_MIO14_500"/>
+                            </pin_maps>
+                        </port_map>
+                    </port_maps>
+                </interface>
+
                 <!-- HDMI TX via PL -->
                 <!-- HDMI TX interface for video output, connected to the programmable logic (PL) -->
                 <interface mode="master" name="hdmi_in_dc" type="xilinx.com:interface:iic_rtl:1.0" of_component="hdmi_in">
@@ -475,6 +494,11 @@
         <component name="sys_clock_ps" display_name="PS Clock" type="chip" sub_type="system_clock" major_group="Clocks">
             <description>33.33Mhz active crystal oscillator provides a stable clock for the PS system</description>
         </component>
+        <!-- UART -->
+        <component name="usb_uart" display_name="USB UART" type="chip" sub_type="uart" major_group="UART">
+            <description>USB-to-UART Bridge, which allows a connection to a host computer with a USB port</description>
+        </component>
+
     </components>
 
     <jtag_chains>

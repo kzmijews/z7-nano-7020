@@ -250,5 +250,19 @@
     <pin index="111" name="GPIO2_15N" iostandard="LVCMOS33" loc="L17" />
     <pin index="112" name="GPIO2_16P" iostandard="LVCMOS33" loc="M19" />
     <pin index="113" name="GPIO2_16N" iostandard="LVCMOS33" loc="M20" />
+
+    <!-- USB UART -->
+    <!--     The USB UART interface on the Z7-Nano board provides a serial communication channel for debugging and programming -->
+    <!--     The USB UART pins are used to connect the board to a USB host, such as a computer or a USB hub -->
+    <!--     The iostandard "LVCMOS33" indicates that these pins operate at 3.3V logic levels -->
+    <!--     The loc attribute specifies the physical location of each pin on the FPGA package -->
+    <!--     The index attribute indicates the order of the pins, which can be useful for referencing them in design files -->
+    <!--     The pin names are descriptive and indicate the function of each pin, such as USB_UART_TX for the transmit pin and USB_UART_RX for the receive pin -->
+    <!--     The USB UART interface is typically used for serial communication, allowing for data transfer between the FPGA and a USB host -->
+    <!--     The USB UART interface can be used for debugging purposes, such as sending debug messages or receiving commands -->
+    <!--     The USB UART interface can also be used for programming the FPGA, allowing for easy firmware updates and configuration changes -->
+    <!--     The USB UART interface can be used to create a virtual serial port on the host computer, enabling communication with the FPGA as if it were a standard serial device -->
+    <pin index="115" name="PS_MIO15_500" iostandard="LVCMOS33" loc="C8" /> <!-- UART_TX -->
+    <pin index="116" name="PS_MIO14_500" iostandard="LVCMOS33" loc="C5" /> <!-- UART_RX -->
   </pins>
 </part_info>
