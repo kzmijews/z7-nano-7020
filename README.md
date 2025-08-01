@@ -8,7 +8,7 @@ which is based on the **Xilinx Zynq-7000 SoC** (XC7Z020) and manufactured by **M
 
 <div>
     <p align="center" width="100%" height="100%">
-        <img src="./board_files/Z7-Nano_7020/1.0/z7-nano_board.png"/>
+        <img src="./board_files/Z7-Nano_7020/1.0/z7-nano-board.png"/>
     </p>
 </div>
 
