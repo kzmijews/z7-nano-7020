@@ -25,12 +25,112 @@
                     </preferred_ips>
                 </interface>
 
+                <!-- Clock-->
+                <interface mode="slave" name="sys_clock" type="xilinx.com:signal:clock_rtl:1.0" of_component="sys_clock" preset_proc="sys_clock_preset">
+                    <preferred_ips>
+                        <preferred_ip vendor="xilinx.com" library="ip" name="clk_wiz" order="0"/>
+                    </preferred_ips>
+                    <port_maps>
+                        <port_map logical_port="CLK" physical_port="sys_clk" dir="in">
+                            <pin_maps>
+                                <pin_map port_index="0" component_pin="PL_CLK_50M"/>
+                            </pin_maps>
+                        </port_map>
+                    </port_maps>
+                    <parameters>
+                        <parameter name="frequency" value="50000000" />
+                    </parameters>
+                </interface>
+
                 <!-- HDMI TX via PL -->
                 <!-- HDMI TX interface for video output, connected to the programmable logic (PL) -->
-                <interface mode="master" name="hdmi_tx" type="xilinx.com:interface:svideo_rtl:1.0" of_component="hdmi" preset_proc="HDMI_TX_preset">
+                <interface mode="master" name="hdmi_in_dc" type="xilinx.com:interface:iic_rtl:1.0" of_component="hdmi_in">
                     <preferred_ips>
-                        <preferred_ip vendor="xilinx.com" library="ip" name="axi_hdmi_tx" order="0"/>
+                        <preferred_ip vendor="xilinx.com" library="ip" name="axi_iic" order="0"/>
                     </preferred_ips>
+                    <port_maps>
+                        <port_map logical_port="SDA_I" physical_port="hdmi_in_sda_i" dir="in">
+                            <pin_maps>
+                                <pin_map port_index="0" component_pin="HDMI1_I2C_SDA"/>
+                            </pin_maps>
+                        </port_map>
+                        <port_map logical_port="SDA_O" physical_port="hdmi_in_sda_o" dir="out">
+                            <pin_maps>
+                                <pin_map port_index="0" component_pin="HDMI1_I2C_SDA"/>
+                            </pin_maps>
+                        </port_map>
+                        <port_map logical_port="SDA_T" physical_port="hdmi_in_sda_t" dir="out">
+                            <pin_maps>
+                                <pin_map port_index="0" component_pin="HDMI1_I2C_SDA"/>
+                            </pin_maps>
+                        </port_map>
+                        <port_map logical_port="SCL_I" physical_port="hdmi_in_scl_i" dir="in">
+                            <pin_maps>
+                                <pin_map port_index="0" component_pin="HDMI1_I2C_SCL"/>
+                            </pin_maps>
+                        </port_map>
+                        <port_map logical_port="SCL_O" physical_port="hdmi_in_scl_o" dir="out">
+                            <pin_maps>
+                                <pin_map port_index="0" component_pin="HDMI1_I2C_SCL"/>
+                            </pin_maps>
+                        </port_map>
+                        <port_map logical_port="SCL_T" physical_port="hdmi_in_scl_t" dir="out">
+                            <pin_maps>
+                                <pin_map port_index="0" component_pin="HDMI1_I2C_SCL"/>
+                            </pin_maps>
+                        </port_map>
+                    </port_maps>
+                </interface>
+                <interface mode="master" name="hdmi_hpd" type="xilinx.com:interface:gpio_rtl:1.0" of_component="hdmi_hpd_led">
+                    <port_maps>
+                    <port_map logical_port="TRI_O" physical_port="hdmi_rx_hpd" dir="out">
+                        <pin_maps>
+                        <pin_map port_index="0" component_pin="HDMI1_HPDN"/>
+                        </pin_maps>
+                    </port_map>
+                            <port_map logical_port="TRI_I" physical_port="hdmi_rx_hpd" dir="in">
+                        <pin_maps>
+                        <pin_map port_index="0" component_pin="HDMI1_HPDN"/>
+                        </pin_maps>
+                    </port_map>
+                            <port_map logical_port="TRI_T" physical_port="hdmi_rx_hpd" dir="out">
+                        <pin_maps>
+                        <pin_map port_index="0" component_pin="HDMI1_HPDN"/>
+                        </pin_maps>
+                    </port_map>
+                    </port_maps>
+                </interface>
+                <interface mode="master" name="hdmi_out" type="digilentinc.com:interface:tmds_rtl:1.0" of_component="hdmi_out">
+                    <description>HDMI Out</description>
+                    <preferred_ips>
+                        <preferred_ip vendor="digilentinc.com" library="ip" name="rgb2dvi" order="0"/>
+                    </preferred_ips>
+                    <port_maps>
+                    <port_map logical_port="CLK_P" physical_port="TMDS_OUT_clk_p" dir="out">
+                        <pin_maps>
+                        <pin_map port_index="0" component_pin="HDMI1_CLK_P"/>
+                        </pin_maps>
+                    </port_map>
+                    <port_map logical_port="CLK_N" physical_port="TMDS_OUT_clk_n" dir="out">
+                        <pin_maps>
+                        <pin_map port_index="0" component_pin="HDMI1_CLK_N"/>
+                        </pin_maps>
+                    </port_map>
+                    <port_map logical_port="DATA_P" physical_port="TMDS_OUT_D_P" dir="out" left="2" right="0">
+                        <pin_maps>
+                        <pin_map port_index="0" component_pin="HDMI1_D0_P"/>
+                        <pin_map port_index="1" component_pin="HDMI1_D1_P"/>
+                        <pin_map port_index="2" component_pin="HDMI1_D2_P"/>
+                        </pin_maps>
+                    </port_map>
+                    <port_map logical_port="DATA_N" physical_port="TMDS_OUT_D_N" dir="out" left="2" right="0">
+                        <pin_maps>
+                        <pin_map port_index="0" component_pin="HDMI1_D0_N"/>
+                        <pin_map port_index="1" component_pin="HDMI1_D1_N"/>
+                        <pin_map port_index="2" component_pin="HDMI1_D2_N"/>
+                        </pin_maps>
+                    </port_map>
+                    </port_maps>
                 </interface>
 
                 <!-- Ethernet 1 via PS -->
@@ -313,8 +413,21 @@
             <description>Button, Active Low</description>
         </component>
          <!-- HDMI -->
-        <component name="hdmi" display_name="HDMI TX" type="chip" sub_type="lcd" major_group="HDMI">
-            <description>HDMI interface, Active High</description>
+        <component name="hdmi_hpd_led" display_name="HDMI HPD" type="chip" sub_type="led" major_group="HDMI">
+            <description>HDMI HPD</description>
+        </component>
+        <component name="hdmi_in" display_name="HDMI In" type="chip" sub_type="fixed_io" major_group="HDMI">
+            <description>HDMI input (Requires Digilent's TMDS interface)</description>
+            <component_modes>
+                <component_mode name="HDMI_IN" display_name="HDMI In">
+                    <interfaces>
+                        <interface name="hdmi_in" order="0"/>
+                    </interfaces>
+                </component_mode>
+            </component_modes>
+        </component>
+          <component name="hdmi_out" display_name="HDMI out" type="chip" sub_type="fixed_io" major_group="HDMI">
+            <description>HDMI Out (Requires Digilent's TMDS interface)</description>
         </component>
         <!-- Ethernet PS -->
         <component name="ethernet_ps" display_name="PS Ethernet" type="chip" sub_type="ethernet" major_group="Ethernet">
@@ -339,6 +452,10 @@
                     </interfaces>
                 </component_mode>
             </component_modes>
+        </component>
+        <!-- Clock -->
+        <component name="sys_clock" display_name="System Clock" type="chip" sub_type="system_clock" major_group="Clocks">
+            <description>3.3V Single-Ended 50 MHz oscillator used as system clock on the board</description>
         </component>
     </components>
 
