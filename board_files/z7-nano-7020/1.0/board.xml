@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <board schema_version="2.0" vendor="microphase" name="z7-nano-7020" display_name="z7-nano-7020" url="http://www.microphase.cn" preset_file="preset.xml">
     <images>
-        <image name="z7-nano_board.png" display_name="z7-nano-7020" sub_type="board">
+        <image name="z7-nano-board.png" display_name="z7-nano-7020" sub_type="board">
             <description>Microphase Z7-Nano Development board (Z7020 Version)</description>
         </image>
     </images>
@@ -25,8 +25,8 @@
                     </preferred_ips>
                 </interface>
 
-                <!-- Clock-->
-                <interface mode="slave" name="sys_clock" type="xilinx.com:signal:clock_rtl:1.0" of_component="sys_clock" preset_proc="sys_clock_preset">
+                <!-- Clocks-->
+                <interface mode="slave" name="sys_clock_pl" type="xilinx.com:signal:clock_rtl:1.0" of_component="sys_clock_pl" preset_proc="sys_clock_pl_preset">
                     <preferred_ips>
                         <preferred_ip vendor="xilinx.com" library="ip" name="clk_wiz" order="0"/>
                     </preferred_ips>
@@ -39,6 +39,21 @@
                     </port_maps>
                     <parameters>
                         <parameter name="frequency" value="50000000" />
+                    </parameters>
+                </interface>
+                <interface mode="slave" name="sys_clock_ps" type="xilinx.com:signal:clock_rtl:1.0" of_component="sys_clock_ps" preset_proc="sys_clock_ps_preset">
+                    <preferred_ips>
+                        <preferred_ip vendor="xilinx.com" library="ip" name="clk_wiz" order="0"/>
+                    </preferred_ips>
+                    <port_maps>
+                        <port_map logical_port="CLK" physical_port="sys_clk" dir="in">
+                            <pin_maps>
+                                <pin_map port_index="0" component_pin="PS_CLK_33d3"/>
+                            </pin_maps>
+                        </port_map>
+                    </port_maps>
+                    <parameters>
+                        <parameter name="frequency" value="33333000" />
                     </parameters>
                 </interface>
 
@@ -431,7 +446,7 @@
         </component>
         <!-- Ethernet PS -->
         <component name="ethernet_ps" display_name="PS Ethernet" type="chip" sub_type="ethernet" major_group="Ethernet">
-            <description>Ethernet interface PS, Active High</description>
+            <description>Ethernet interface PS control, Active High</description>
             <component_modes>
                 <component_mode name="mii" display_name="MII mode">
                     <interfaces>
@@ -443,7 +458,7 @@
         </component>
         <!-- Ethernet PL -->
         <component name="ethernet_pl" display_name="PL Ethernet" type="chip" sub_type="ethernet" major_group="Ethernet">
-            <description>Ethernet interface PL, Active High</description>
+            <description>Ethernet interface PL control, Active High</description>
             <component_modes>
                 <component_mode name="mii" display_name="MII mode">
                     <interfaces>
@@ -453,9 +468,12 @@
                 </component_mode>
             </component_modes>
         </component>
-        <!-- Clock -->
-        <component name="sys_clock" display_name="System Clock" type="chip" sub_type="system_clock" major_group="Clocks">
-            <description>3.3V Single-Ended 50 MHz oscillator used as system clock on the board</description>
+        <!-- Clocks -->
+        <component name="sys_clock_pl" display_name="PL Clock" type="chip" sub_type="system_clock" major_group="Clocks">
+            <description>50Mhz active crystal oscillator provides additional clocks for the PL logic</description>
+        </component>
+        <component name="sys_clock_ps" display_name="PS Clock" type="chip" sub_type="system_clock" major_group="Clocks">
+            <description>33.33Mhz active crystal oscillator provides a stable clock for the PS system</description>
         </component>
     </components>
 
