@@ -311,7 +311,7 @@
                 </interface>
 
                 <!-- Buttons -->
-                <interface mode="master" name="btns_1bit" type="xilinx.com:interface:gpio_rtl:1.0" of_component="btns_1bit" preset_proc="BTN_1BIT_preset">
+                <interface mode="master" name="btns_2bits" type="xilinx.com:interface:gpio_rtl:1.0" of_component="btns_2bits" preset_proc="BTN_2BITS_preset">
                     <preferred_ips>
                         <preferred_ip vendor="xilinx.com" library="ip" name="axi_gpio" order="0"/>
                     </preferred_ips>
@@ -319,7 +319,7 @@
                         <port_map logical_port="TRI_I" physical_port="btns_2bits_tri_i" dir="in" left="1" right="0">
                             <pin_maps>
                                 <pin_map port_index="0" component_pin="PL_KEY1"/>
-                                <pin_map port_index="1" component_pin="NC"/>
+                                <pin_map port_index="1" component_pin="PS_POR_B_500"/>
                             </pin_maps>
                         </port_map>
                     </port_maps>
@@ -443,8 +443,8 @@
             <description>LEDs, Active Low</description>
         </component>
         <!-- User Buttons: -->
-        <component name="btns_1bit" display_name="1 Button" type="chip" sub_type="push_button" major_group="GPIO">
-            <description>Button, Active Low</description>
+        <component name="btns_2bits" display_name="2 Buttons" type="chip" sub_type="push_button" major_group="GPIO">
+            <description>Buttons (PL_KEY1 and SYS_RESET_N), Active Low</description>
         </component>
          <!-- HDMI -->
         <component name="hdmi_hpd_led" display_name="HDMI HPD" type="chip" sub_type="led" major_group="HDMI">

@@ -19,7 +19,7 @@
     <!--     The loc attribute specifies the physical location of each pin on the FPGA package -->
     <!--     The index attribute indicates the order of the pins, which can be useful for referencing them in design files -->
     <pin index="0" name="PL_KEY1" iostandard="LVCMOS33" loc="P14" />
-    <pin index="114" name="NC" iostandard="LVCMOS33" loc="UNUSED_PIN"/>
+    <pin index="114" name="PS_POR_B_500" iostandard="LVCMOS33" loc="C7"/> <!-- SYS_nRST_KEY -->
 
     <!-- LED PINS -->
     <!--     The LED pins are used to drive LEDs on the board -->

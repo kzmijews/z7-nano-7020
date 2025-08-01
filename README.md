@@ -32,6 +32,18 @@ Full documentation is available
 [here](https://fpga-docs.microphase.cn/projects/documentation-of-microphase-fpga-board/en/latest/DEV_BOARD/Z7-NANO/Z7-NANO_Reference_Manual.html)
 
 ## Installation
+Copy the following directory into your Xilinx tools installation path to install the board.
 ```bash
 cp -r z7-nano-7020/board_files/z7-nano-7020 /opt/Xilinx/2025.1/data/boards/board_files/
 ```
+It should be visible in Vivado:
+<div>
+    <p align="center" width="100%" height="100%">
+        <img src="./imgs/z7-nano-board-select.png"/>
+    </p>
+</div>
+<div>
+    <p align="center" width="100%" height="100%">
+        <img src="./imgs/z7-nano-board-vivado.png"/>
+    </p>
+</div>
