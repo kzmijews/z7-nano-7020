@@ -216,9 +216,9 @@
         </ip>
     </ip_preset>
     <ip_preset preset_proc_name="BTN_1BIT_preset">
-        <ip vendor="xilinx.com" library="ip" name="axi_gpio" ip_interface="GPIO">
+        <ip vendor="xilinx.com" library="ip" name="axi_gpio" version="*">
             <user_parameters>
-                <user_parameter name="CONFIG.C_GPIO_WIDTH" value="1"/>
+                <user_parameter name="CONFIG.C_GPIO_WIDTH" value="2"/>
                 <user_parameter name="CONFIG.C_ALL_INPUTS" value="1"/>
                 <user_parameter name="CONFIG.C_ALL_OUTPUTS" value="0"/>
             </user_parameters>

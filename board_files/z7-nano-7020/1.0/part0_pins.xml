@@ -18,7 +18,8 @@
     <!--     The iostandard "LVCMOS33" indicates that these pins operate at 3.3V logic levels -->
     <!--     The loc attribute specifies the physical location of each pin on the FPGA package -->
     <!--     The index attribute indicates the order of the pins, which can be useful for referencing them in design files -->
-    <pin index="0" name="PL_KEY_1" iostandard="LVCMOS33" loc="P14" />
+    <pin index="0" name="PL_KEY1" iostandard="LVCMOS33" loc="P14" />
+    <pin index="113" name="NC" iostandard="LVCMOS33" loc="UNUSED_PIN"/>
 
     <!-- LED PINS -->
     <!--     The LED pins are used to drive LEDs on the board -->
