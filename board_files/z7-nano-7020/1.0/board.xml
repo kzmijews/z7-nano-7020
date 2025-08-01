@@ -27,21 +27,78 @@
 
                 <!-- HDMI TX via PL -->
                 <!-- HDMI TX interface for video output, connected to the programmable logic (PL) -->
-                <interface mode="master" name="hdmi_tx" type="xilinx.com:interface:svideo_rtl:1.0" of_component="hdmi">
+                <interface mode="master" name="hdmi_tx" type="xilinx.com:interface:svideo_rtl:1.0" of_component="hdmi" preset_proc="HDMI_TX_preset">
                     <preferred_ips>
                         <preferred_ip vendor="xilinx.com" library="ip" name="axi_hdmi_tx" order="0"/>
                     </preferred_ips>
                 </interface>
 
                 <!-- Ethernet 1 via PS -->
-                <interface mode="master" name="eth_ps" type="xilinx.com:interface:ethernet_rtl:1.0" of_component="ethernet_ps">
+                <interface mode="master" name="eth_mdio_mdc_ps" type="xilinx.com:interface:mdio_rtl:1.0" of_component="ethernet_ps" preset_proc="ETH_PS_preset">
+                    <port_maps>
+                        <port_map logical_port="MDIO_I" physical_port="ETH1_MDIO" dir="in">
+                            <pin_maps>
+                            <pin_map port_index="0" component_pin="ETH1_MDIO"/>
+                            </pin_maps>
+                        </port_map>
+                        <port_map logical_port="MDIO_O" physical_port="eth_mdio_o" dir="out">
+                            <pin_maps>
+                            <pin_map port_index="0" component_pin="ETH1_MDIO"/>
+                            </pin_maps>
+                        </port_map>
+                        <port_map logical_port="MDIO_T" physical_port="eth_mdio_t" dir="out">
+                            <pin_maps>
+                            <pin_map port_index="0" component_pin="ETH1_MDIO"/>
+                            </pin_maps>
+                        </port_map>
+                        <port_map logical_port="MDC" physical_port="eth_mdc" dir="out">
+                            <pin_maps>
+                            <pin_map port_index="0" component_pin="ETH1_MDC"/>
+                            </pin_maps>
+                        </port_map>
+                    </port_maps>
+                </interface>
+                <interface mode="master" name="eth_mii_ps" type="xilinx.com:interface:mii_rtl:1.0" of_component="ethernet_ps" preset_proc="ETH_PS_preset">
                     <preferred_ips>
-                        <preferred_ip vendor="xilinx.com" library="ip" name="axi_ethernet" order="0"/>
+                        <preferred_ip vendor="xilinx.com" library="ip" name="axi_ethernetlite" order="0"/>
                     </preferred_ips>
+                    <port_maps>
+                        <port_map logical_port="TXD" physical_port="eth_txd" dir="out" left="3" right="0">
+                            <pin_maps>
+                                <pin_map port_index="0" component_pin="ETH1_TXD0"/>
+                                <pin_map port_index="1" component_pin="ETH1_TXD1"/>
+                                <pin_map port_index="2" component_pin="ETH1_TXD2"/>
+                                <pin_map port_index="3" component_pin="ETH1_TXD3"/>
+                            </pin_maps>
+                        </port_map>
+                        <port_map logical_port="RXD" physical_port="eth_rxd" dir="in" left="3" right="0">
+                            <pin_maps>
+                                <pin_map port_index="0" component_pin="ETH1_RXD0"/>
+                                <pin_map port_index="1" component_pin="ETH1_RXD1"/>
+                                <pin_map port_index="2" component_pin="ETH1_RXD2"/>
+                                <pin_map port_index="3" component_pin="ETH1_RXD3"/>
+                            </pin_maps>
+                        </port_map>
+                        <port_map logical_port="TX_CLK" physical_port="eth_tx_clk" dir="in">
+                            <pin_maps>
+                                <pin_map port_index="0" component_pin="ETH1_TXCTL"/>
+                            </pin_maps>
+                        </port_map>
+                        <port_map logical_port="RX_CLK" physical_port="eth_rx_clk" dir="in">
+                            <pin_maps>
+                                <pin_map port_index="0" component_pin="ETH1_RXCTL"/>
+                            </pin_maps>
+                        </port_map>
+                        <port_map logical_port="RST_N" physical_port="eth_rstn" dir="out">
+                            <pin_maps>
+                                <pin_map port_index="0" component_pin="ETH1_nRST"/>
+                            </pin_maps>
+                        </port_map>
+                    </port_maps>
                 </interface>
 
                 <!-- Ethernet 2 via PL -->
-                <interface mode="master" name="eth_pl" type="xilinx.com:interface:ethernet_rtl:1.0" of_component="ethernet_pl">
+                <interface mode="master" name="eth_pl" type="xilinx.com:interface:ethernet_rtl:1.0" of_component="ethernet_pl" preset_proc="ETH_PL_preset">
                     <preferred_ips>
                         <preferred_ip vendor="xilinx.com" library="ip" name="axi_ethernet" order="0"/>
                     </preferred_ips>
@@ -49,9 +106,6 @@
 
                 <!-- LEDs -->
                 <interface mode="master" name="leds_2bits" type="xilinx.com:interface:gpio_rtl:1.0" of_component="leds_2bits" preset_proc="LED_2BIT_preset">
-                    <preferred_ips>
-                        <preferred_ip vendor="xilinx.com" library="ip" name="axi_gpio" order="0"/>
-                    </preferred_ips>
                     <port_maps>
                         <port_map logical_port="TRI_O" physical_port="leds_2bits_tri_o" dir="out" left="1" right="0">
                             <pin_maps>
@@ -175,31 +229,40 @@
         <!-- Zynq 7000 processing system -->
         <component name="ps7_fixedio" display_name="PS7 fixed IO" type="chip" sub_type="fixed_io" major_group=""/>
         <!-- User LEDs -->
-        <component name="leds_2bits" display_name="LEDs" type="chip" sub_type="led" major_group="General Purpose Input or Output">
+        <component name="leds_2bits" display_name="LEDs" type="chip" sub_type="led" major_group="GPIO">
             <description>LEDs, Active Low</description>
         </component>
         <!-- User Buttons: -->
-        <component name="btns_1bit" display_name="BTNs" type="chip" sub_type="push_button" major_group="General Purpose Input or Output">
-            <description>Buttons, Active Low</description>
+        <component name="btns_1bit" display_name="1 Button" type="chip" sub_type="push_button" major_group="GPIO">
+            <description>Button, Active Low</description>
         </component>
          <!-- HDMI -->
-        <component name="hdmi" display_name="HDMI TX" type="chip" sub_type="lcd" major_group="High-Definition Multimedia Interface">
+        <component name="hdmi" display_name="HDMI TX" type="chip" sub_type="lcd" major_group="HDMI">
             <description>HDMI interface, Active High</description>
         </component>
         <!-- Ethernet PS -->
-        <component name="ethernet_ps" display_name="Ethernet PS" type="chip" sub_type="ethernet" major_group="Ethernet Interface">
+        <component name="ethernet_ps" display_name="Ethernet PS MII" type="chip" sub_type="ethernet" major_group="Ethernet">
             <description>Ethernet interface PS, Active High</description>
+            <component_modes>
+                <component_mode name="mii" display_name="MII mode">
+                    <interfaces>
+                        <interface name="eth_mii_ps" order="0"/>
+                        <interface name="eth_mdio_mdc_ps" order="1" optional="true"/>
+                    </interfaces>
+                </component_mode>
+            </component_modes>
         </component>
+
         <!-- Ethernet PL -->
-        <component name="ethernet_pl" display_name="Ethernet PL" type="chip" sub_type="ethernet" major_group="Ethernet Interface">
+        <component name="ethernet_pl" display_name="Ethernet PL" type="chip" sub_type="ethernet" major_group="Ethernet">
             <description>Ethernet interface PL, Active High</description>
         </component>
         <!-- GPIO1 -->
-        <component name="GPIO1" display_name="GPIO1" type="chip" sub_type="pmod" major_group="General Purpose Input or Output">
+        <component name="GPIO1" display_name="GPIO1" type="chip" sub_type="pmod" major_group="GPIO">
             <description>General Purpose IO 1 Positive</description>
         </component>
         <!-- GPIO2 -->
-        <component name="GPIO2" display_name="GPIO2" type="chip" sub_type="pmod" major_group="General Purpose Input or Output">
+        <component name="GPIO2" display_name="GPIO2" type="chip" sub_type="pmod" major_group="GPIO">
             <description>General Purpose IO 2 Positive</description>
         </component>
     </components>

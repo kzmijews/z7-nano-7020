@@ -216,7 +216,7 @@
         </ip>
     </ip_preset>
     <ip_preset preset_proc_name="BTN_1BIT_preset">
-        <ip vendor="xilinx.com" library="ip" name="axi_gpio" version="*">
+        <ip vendor="xilinx.com" library="ip" name="axi_gpio" ip_interface="GPIO">
             <user_parameters>
                 <user_parameter name="CONFIG.C_GPIO_WIDTH" value="1"/>
                 <user_parameter name="CONFIG.C_ALL_INPUTS" value="1"/>
@@ -227,7 +227,7 @@
     <ip_preset preset_proc_name="GPIO1_preset">
         <ip vendor="xilinx.com" library="ip" name="axi_gpio" version="*">
             <user_parameters>
-                <user_parameter name="CONFIG.C_GPIO_WIDTH" value="16"/>
+                <user_parameter name="CONFIG.C_GPIO_WIDTH" value="17"/>
                 <user_parameter name="CONFIG.C_ALL_INPUTS" value="0"/>
                 <user_parameter name="CONFIG.C_ALL_OUTPUTS" value="0"/>
                 <user_parameter name="CONFIG.C_ALL_DUAL" value="1"/>
@@ -237,10 +237,53 @@
     <ip_preset preset_proc_name="GPIO2_preset">
         <ip vendor="xilinx.com" library="ip" name="axi_gpio" version="*">
             <user_parameters>
-                <user_parameter name="CONFIG.C_GPIO_WIDTH" value="16"/>
+                <user_parameter name="CONFIG.C_GPIO_WIDTH" value="17"/>
                 <user_parameter name="CONFIG.C_ALL_INPUTS" value="0"/>
                 <user_parameter name="CONFIG.C_ALL_OUTPUTS" value="0"/>
                 <user_parameter name="CONFIG.C_ALL_DUAL" value="1"/>
+            </user_parameters>
+        </ip>
+    </ip_preset>
+    <ip_preset preset_proc_name="HDMI_TX_preset">
+        <ip vendor="xilinx.com" library="ip" name="axi_hdmi_tx" version="*">
+            <user_parameters>
+                <user_parameter name="CONFIG.C_HAS_HDMI" value="1"/>
+                <user_parameter name="CONFIG.C_HAS_AUDIO" value="0"/>
+                <user_parameter name="CONFIG.C_HAS_AUX" value="0"/>
+                <user_parameter name="CONFIG.C_HAS_VDMA" value="1"/>
+                <user_parameter name="CONFIG.C_HAS_INTR" value="1"/>
+                <user_parameter name="CONFIG.C_INCLUDE_IO" value="1"/>
+                <user_parameter name="CONFIG.C_INPUT_PIXELS_PER_CLOCK" value="1"/>
+                <user_parameter name="CONFIG.C_MAX_BITS_PER_COMPONENT" value="8"/>
+                <user_parameter name="CONFIG.C_RESOLUTION" value="1080p"/>
+            </user_parameters>
+        </ip>
+    </ip_preset>
+    <ip_preset preset_proc_name="ETH_PS_preset">
+        <ip vendor="xilinx.com" library="ip" name="axi_ethernet" version="*">
+            <user_parameters>
+                <user_parameter name="C_INCLUDE_PHY_IF" value="1"/>
+                <user_parameter name="C_PHY_TYPE" value="RGMII"/>
+                <user_parameter name="C_INCLUDE_MDIO" value="1"/>
+                <user_parameter name="C_INCLUDE_IO" value="1"/>
+                <user_parameter name="C_INCLUDE_INTERNAL_STATS" value="0"/>
+                <user_parameter name="C_STATS_COUNTERS" value="0"/>
+                <user_parameter name="C_TXCSUM" value="0"/>
+                <user_parameter name="C_RXCSUM" value="0"/>
+            </user_parameters>
+        </ip>
+    </ip_preset>
+    <ip_preset preset_proc_name="ETH_PL_preset">
+        <ip vendor="xilinx.com" library="ip" name="axi_ethernet" version="*">
+            <user_parameters>
+                <user_parameter name="C_INCLUDE_PHY_IF" value="1"/>
+                <user_parameter name="C_PHY_TYPE" value="RGMII"/>
+                <user_parameter name="C_INCLUDE_MDIO" value="1"/>
+                <user_parameter name="C_INCLUDE_IO" value="1"/>
+                <user_parameter name="C_INCLUDE_INTERNAL_STATS" value="0"/>
+                <user_parameter name="C_STATS_COUNTERS" value="0"/>
+                <user_parameter name="C_TXCSUM" value="0"/>
+                <user_parameter name="C_RXCSUM" value="0"/>
             </user_parameters>
         </ip>
     </ip_preset>
