@@ -2,6 +2,13 @@
 
 > ⚠️ **Warning**: This project is currently under development, was not verified yet and may not be fully functional. Stay tuned for updates!
 
+> MicroPhase, Inc. makes no warranties regarding the use of this code or design.
+> Code is provided "as is." MicroPhase, Inc. assumes no responsibility
+> for any errors that may be present in this code, nor does it make any
+> commitment to update the information contained herein.
+> MicroPhase, Inc. specifically disclaims any implied warranties,
+> including but not limited to warranties of fitness for a particular purpose.
+
 ## Overview
 This project contains the board definition files required by the **Vitis IDE** for the **Z7-Nano** development board,
 which is based on the **Xilinx Zynq-7000 SoC** (XC7Z020) and manufactured by **MicroPhase**. The board features the following:
@@ -11,7 +18,6 @@ which is based on the **Xilinx Zynq-7000 SoC** (XC7Z020) and manufactured by **M
         <img src="./board_files/z7-nano-7020/1.0/z7-nano-board.png"/>
     </p>
 </div>
-
 
 - 667 MHz dual-core Cortex-A9 processor
 - DDR3L memory controller with 8 DMA channels and 4
@@ -47,3 +53,21 @@ It should be visible in Vivado:
         <img src="./imgs/z7-nano-board-vivado.png"/>
     </p>
 </div>
+
+## XDC (Xilinx Design Constraints)
+To generate a `.xdc` file, you need to extract the pin assignments and constraints defined
+in `part0_pins.xml` and convert them into standard XDC format. A dedicated script has been
+provided for this purpose: `./scripts/xdcgen.py`.
+
+To view usage instructions, run:
+
+```bash
+cd ./scripts
+./xdcgen -h
+```
+
+Once the .xdc file is generated:
+1. Open your Vivado block design project.
+2. In the **Sources** panel, right-click on **Constraints**.
+3. Select **Add Sources** → **Add or Create Constraints**.
+4. Add the generated `z7-nano-7020.xdc` file to your project.
