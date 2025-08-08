@@ -1,6 +1,8 @@
 # Z7 Adder Platform setup
 
-Create the platform based on the `z7_adder_design_wrapper.xsa` hardware specification file.
+Create the platform using the `z7_adder_design_wrapper.xsa` hardware specification file.
+This file was generated as an HDL wrapper from the `z7_adder_proj` design included in
+the Vivado project. The platform is needed for embedded apps to run.
 
 ## To create the platform project from the .xsa file:
 1. Open Vitis IDE.

@@ -3,7 +3,7 @@
 * SPDX-License-Identifier: MIT
 ******************************************************************************/
 /*
- * helloworld.c: simple test application
+ * adder.c: simple test application
  *
  * This application configures UART 16550 to baud rate 9600.
  * PS7 UART (Zynq) is not initialized by this application, since

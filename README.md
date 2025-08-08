@@ -71,3 +71,17 @@ Once the .xdc file is generated:
 2. In the **Sources** panel, right-click on **Constraints**.
 3. Select **Add Sources** → **Add or Create Constraints**.
 4. Add the generated `z7-nano-7020.xdc` file to your project.
+
+This file should be used with caution, as not all constraints may be applicable to the programmable
+logic (PL) portion of the board. It is recommended to comment out the entire contents of the file
+and then uncomment only the constraints that are relevant to your specific design.
+
+## Examples
+The `examples` directory contains several basic resources:
+- IP definitions created using the HLS flow,
+- dedicated platform definitions for the Z7 Nano board,
+- embedded applications for verifying the correctness of the board files.
+
+This folder will be continuously developed to include at least basic manual tests for all fundamental
+board functionalities. For more details, refer to the `examples` subdirectory. Each example includes
+a separate `README.md` file explaining the basics.
