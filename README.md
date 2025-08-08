@@ -44,12 +44,12 @@ cp -r z7-nano-7020/board_files/z7-nano-7020 /opt/Xilinx/2025.1/data/boards/board
 ```
 It should be visible in Vivado:
 <div>
-    <p align="center" width="100%" height="100%">
+    <p align="center" width="800px" height="600px">
         <img src="./imgs/z7-nano-board-select.png"/>
     </p>
 </div>
 <div>
-    <p align="center" width="100%" height="100%">
+    <p align="center" width="800px" height="600px">
         <img src="./imgs/z7-nano-board-vivado.png"/>
     </p>
 </div>
