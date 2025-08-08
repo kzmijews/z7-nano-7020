@@ -1,0 +1,17 @@
+{
+  "name": "z7_adder_app",
+  "type": "HOST",
+  "platform": "z7_adder_platf",
+  "domain": "standalone_ps7_cortexa9_0",
+  "cpuInstance": "ps7_cortexa9_0",
+  "cpuType": "cortex-a9",
+  "os": "standalone",
+  "configuration": {
+    "componentType": "HOST",
+    "hostToolchainConfigurations": []
+  },
+  "domainRealName": "standalone_ps7_cortexa9_0",
+  "useSysrootToolchain": false,
+  "applicationFlow": "EMBEDDED",
+  "template": "hello_world"
+}
