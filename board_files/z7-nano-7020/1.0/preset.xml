@@ -244,20 +244,6 @@
             </user_parameters>
         </ip>
     </ip_preset>
-    <ip_preset preset_proc_name="ETH_PS_preset">
-        <ip vendor="xilinx.com" library="ip" name="axi_ethernetlite" version="*">
-            <user_parameters>
-                <user_parameter name="CONFIG.C_INCLUDE_PHY_IF" value="1"/>
-                <user_parameter name="CONFIG.C_PHY_TYPE" value="RGMII"/>
-                <user_parameter name="CONFIG.C_INCLUDE_MDIO" value="1"/>
-                <user_parameter name="CONFIG.C_INCLUDE_IO" value="1"/>
-                <user_parameter name="CONFIG.C_INCLUDE_INTERNAL_STATS" value="0"/>
-                <user_parameter name="CONFIG.C_STATS_COUNTERS" value="0"/>
-                <user_parameter name="CONFIG.C_TXCSUM" value="0"/>
-                <user_parameter name="CONFIG.C_RXCSUM" value="0"/>
-            </user_parameters>
-        </ip>
-    </ip_preset>
     <ip_preset preset_proc_name="ETH_PL_preset">
         <ip vendor="xilinx.com" library="ip" name="axi_ethernetlite" version="*">
             <user_parameters>
@@ -289,42 +275,5 @@
             </user_parameters>
         </ip>
     </ip_preset>
-    <ip_preset preset_proc_name="sys_clock_ps_preset">
-        <ip vendor="xilinx.com" library="ip" name="clk_wiz" ip_interface="clk_in1">
-            <user_parameters>
-            <user_parameter name="CONFIG.PRIM_IN_FREQ" value="33"/>
-            <user_parameter name="CONFIG.PRIM_SOURCE" value="Single_ended_clock_capable_pin"/>
-            <user_parameter name="CONFIG.RESET_TYPE" value="ACTIVE_LOW"/>
-            </user_parameters>
-        </ip>
-        <ip vendor="xilinx.com" library="ip" name="clk_wiz" ip_interface="clk_in2">
-            <user_parameters>
-                <user_parameter name="CONFIG.USE_INCLK_SWITCHOVER" value="true"/>
-                <user_parameter name="CONFIG.SECONDARY_IN_FREQ" value="33"/>
-                <user_parameter name="CONFIG.SECONDARY_SOURCE" value="Single_ended_clock_capable_pin"/>
-                <user_parameter name="CONFIG.RESET_TYPE" value="ACTIVE_LOW"/>
-            </user_parameters>
-        </ip>
-    </ip_preset>
-    <ip_preset preset_proc_name="uart_preset">
-        <ip vendor="xilinx.com" library="ip" name="axi_uartlite" ip_interface="UART">
-            <user_parameters>
-                <user_parameter name="CONFIG.C_BAUDRATE" value="115200"/>
-            </user_parameters>
-        </ip>
-        <ip vendor="xilinx.com" library="ip" name="iomodule" ip_interface="UART">
-            <user_parameters>
-                <user_parameter name="CONFIG.C_USE_UART_RX" value="1"/>
-                <user_parameter name="CONFIG.C_USE_UART_TX" value="1"/>
-            </user_parameters>
-        </ip>
-        <ip vendor="xilinx.com" library="ip" name="microblaze_mcs" ip_interface="UART">
-            <user_parameters>
-                <user_parameter name="CONFIG.USE_UART_RX" value="1"/>
-                <user_parameter name="CONFIG.USE_UART_RX" value="1"/>
-            </user_parameters>
-        </ip>
-    </ip_preset>
-
 
 </ip_presets>
