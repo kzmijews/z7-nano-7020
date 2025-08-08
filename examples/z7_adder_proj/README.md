@@ -11,7 +11,7 @@ After execution, the `z7_adder_design` block design should be loaded:
 
 <div>
     <p align="center" width="100%" height="100%">
-        <img src="../imgs/z7-adder-design.png"/>
+        <img src="../../imgs/z7-adder-design.png"/>
     </p>
 </div>
 

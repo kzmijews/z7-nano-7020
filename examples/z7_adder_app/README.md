@@ -11,6 +11,6 @@ available COM port, and set the baud rate to **115200**.
 
 <div>
     <p align="center" width="100%" height="100%">
-        <img src="../imgs/z7-adder-app.png"/>
+        <img src="../../imgs/z7-adder-app.png"/>
     </p>
 </div>
