@@ -10,4 +10,5 @@ by the **Z7 Nano board**, based on the included board files definitions. The ava
     design, providing the runtime environment for embedded applications.
 - `z7_adder_proj`: The Vivado project containing the hardware design, including the IP integrator block
     design and necessary constraints for the Z7 Nano board.
+
 Please refer to the respective subdirectories for more detailed information on each example.
