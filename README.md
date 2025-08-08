@@ -15,7 +15,7 @@ which is based on the **Xilinx Zynq-7000 SoC** (XC7Z020) and manufactured by **M
 
 <div>
     <p align="center" width="100%" height="100%">
-        <img src="./board_files/z7-nano-7020/1.0/z7-nano-board.png"/>
+        <img src="./board_files/z7-nano-7020/1.0/z7-nano-board.png" width="800px" height="600px"/>
     </p>
 </div>
 
@@ -44,13 +44,13 @@ cp -r z7-nano-7020/board_files/z7-nano-7020 /opt/Xilinx/2025.1/data/boards/board
 ```
 It should be visible in Vivado:
 <div>
-    <p align="center" width="800px" height="600px">
-        <img src="./imgs/z7-nano-board-select.png"/>
+    <p align="center" width="100%" height="100%">
+        <img src="./imgs/z7-nano-board-select.png" width="800px" height="600px"/>
     </p>
 </div>
 <div>
-    <p align="center" width="800px" height="600px">
-        <img src="./imgs/z7-nano-board-vivado.png"/>
+    <p align="center" width="100%" height="100%">
+        <img src="./imgs/z7-nano-board-vivado.png" width="800px" height="600px"/>
     </p>
 </div>
 
